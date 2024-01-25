@@ -1,17 +1,17 @@
 # PythonTextEditor
 Simple GUI Text Editor
-Overview
+## Overview
 This is a simple graphical user interface (GUI) text editor built using Python. The primary purpose of this text editor is to provide users with basic functionalities such as creating a new text file, saving files, saving as, and opening new files. It is designed to be user-friendly and straightforward, making it suitable for quick text editing tasks.
 
-Features
+### Features
 New File: Create a new, empty text file to start fresh.
 Save: Save the current changes to the existing file.
 Save As: Save the current file with a new name or in a different location.
 Open: Open an existing text file for editing.
-Requirements
+### Requirements
 Python 3.x
 Tkinter (Python's standard GUI library)
-Installation
+### Installation
 Ensure you have Python installed on your system. You can download it from python.org.
 Tkinter is included with most Python installations. If not, install it using your package manager or by following the instructions on the official Tkinter documentation.
 Usage
@@ -32,7 +32,7 @@ Copy code
 python text_editor.py
 The GUI text editor window will appear.
 
-How to Use
+### How to Use
 Create a New File:
 
 Click on the "New" button to create a new, empty text file.
