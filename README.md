@@ -5,8 +5,11 @@ This is a simple graphical user interface (GUI) text editor built using Python. 
 
 ### Features
 New File: Create a new, empty text file to start fresh.
+
 Save: Save the current changes to the existing file.
+
 Save As: Save the current file with a new name or in a different location.
+
 Open: Open an existing text file for editing.
 ### Requirements
 Python 3.x
