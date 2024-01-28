@@ -2,12 +2,11 @@ from tkinter import *
 from tkinter.filedialog import *
 from tkinter.messagebox import *
 
-
 filename = None
 #sets up blank txt file
 def newFile():
     global filename
-    filename = "Untilted"
+    filename = "Untitled"
     text.delete(0.0, END)
 
 #saves the files current status
@@ -29,14 +28,19 @@ def saveAs():
 
 #opens file explorer and allows user to open any file
 def openFile():
-    f= askopenfile(mode='r')
-    t= f.read()
+    try:
+        f= askopenfile(mode='r')
+        t= f.read()
+    except:
+        showerror(title="Unable to read file", message="Unable to read file, must be plain text file.")
+        return
+
     text.delete(0.0), END
     text.insert(0.0, t)
 
 #creates text window, max and min are set like that to stop users from minimising and increasing window size    
 root = Tk()
-root.title("Python text editor")
+root.title("Text Editor")
 root.minsize(width=400,height=400)
 root.maxsize(width=400,height=400)
 
