@@ -11,13 +11,16 @@ def newFile():
 
 #saves the files current status
 def saveFile():
+    #checks if current file has a name
     global filename
+    #if it doesn't it calls the save as function
     if filename is None:
         saveAs()
     else:
         t = text.get(0.0, END) #stores the text
         try:
-            with open(filename, 'w') as f:#opens the file with the filename stored in the global variable
+            #opens the file with the matching name and then writes the new content to it
+            with open(filename, 'w') as f:
                 f.write(t)
         except Exception as e:
             showerror(title="Error", message=f"Unable to save file: {e}")
@@ -33,7 +36,7 @@ def saveAs():
 
 #opens file explorer and allows user to open any
 def openFile():
-    try:
+    try:#sets global filename to the opened file
         global filename
         file = askopenfile(mode='r')
         if file:
