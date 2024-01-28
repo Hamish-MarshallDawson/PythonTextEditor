@@ -4,28 +4,30 @@ from tkinter.messagebox import *
 
 
 filename = None
-
+#sets up blank txt file
 def newFile():
     global filename
     filename = "Untilted"
     text.delete(0.0, END)
-    
+
+#saves the files current status
 def saveFile():
     global filename
     t = text.get(0.0, END) #stores the text
     f = open(filename, 'w') #opens the file with the filename stored in the global variable
     f.write(t)
     f.close()
-    
+
+#allows the user to save the file to any destination and set its name
 def saveAs():
-    f = asksaveasfile(mode='w', defaultexttension='.txt')
+    f = asksaveasfile(mode='w', defaultextension='.txt')
     t= text.get(0.0, END)
     try:
         f.write(t.rstrip())
     except:
         showerror(title="Nu Uh", message="Unable to save file... uh oh")
-        
-      
+
+#opens file explorer and allows user to open any file
 def openFile():
     f= askopenfile(mode='r')
     t= f.read()
@@ -53,7 +55,6 @@ filemenu.add_command(label="Quit", command=root.quit)
 menubar.add_cascade(label="File", menu=filemenu)
 
 root.config(menu=menubar)
-print("hello")
 root.mainloop()
 
 
