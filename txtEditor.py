@@ -7,16 +7,21 @@ filename = None
 #sets up blank txt file
 def newFile():
     global filename
-    filename = "Untilted"
+    filename = "Untitled"
     text.delete(0.0, END)
 
 #saves the files current status
 def saveFile():
     global filename
-    t = text.get(0.0, END) #stores the text
-    f = open(filename, 'w') #opens the file with the filename stored in the global variable
-    f.write(t)
-    f.close()
+    if filename is None:
+        saveAs()
+    else:
+        t = text.get(0.0, END) #stores the text
+        try:
+            with open(filename, 'w') as f:#opens the file with the filename stored in the global variable
+                f.write(t)
+        except Exception as e:
+            showerror(title="Error", message=f"Unable to save file: {e}")
 
 #allows the user to save the file to any destination and set its name
 def saveAs():
@@ -27,12 +32,22 @@ def saveAs():
     except:
         showerror(title="Nu Uh", message="Unable to save file... uh oh")
 
-#opens file explorer and allows user to open any file
+#opens file explorer and allows user to open any
 def openFile():
-    f= askopenfile(mode='r')
-    t= f.read()
-    text.delete(0.0), END
-    text.insert(0.0, t)
+    try:
+        global filename
+        file = askopenfile(mode='r')
+        if file:
+            filename = file.name  # Set the global filename variable
+            t = file.read()
+            text.delete(0.0, END)
+            text.insert(0.0, t)
+    except:
+        showerror(title="Unable to read file", message="Unable to read file, must be plain text file.")
+        return
+
+ 
+
 
 #creates text window, max and min are set like that to stop users from minimising and increasing window size    
 root = Tk()
