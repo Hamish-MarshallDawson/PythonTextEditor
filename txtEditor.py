@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter.filedialog import *
 from tkinter.messagebox import *
 
-
 filename = None
 #sets up blank txt file
 def newFile():
@@ -51,7 +50,7 @@ def openFile():
 
 #creates text window, max and min are set like that to stop users from minimising and increasing window size    
 root = Tk()
-root.title("Python text editor")
+root.title("Text Editor")
 root.minsize(width=400,height=400)
 root.maxsize(width=400,height=400)
 
